@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "LanScanner",
+    platforms: [.iOS(.v13),.macOS(.v10_13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -18,7 +19,7 @@ let package = Package(
             name: "LanScanner",
             resources: [.copy("Resources/data.plist")],
             publicHeadersPath: "include",
-            cSettings: [.headerSearchPath("Code")]),
+            cSettings: [.headerSearchPath(".")]),
         .testTarget(
             name: "LanScannerTests",
             dependencies: ["LanScanner"]),
