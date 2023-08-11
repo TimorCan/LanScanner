@@ -21,7 +21,7 @@ let package = Package(
             name: "LanScanner",
             resources: [.copy("Resources/data.plist")],
             publicHeadersPath: "include",
-            cSettings: [.headerSearchPath(".")]),
+            cSettings: [.headerSearchPath("."), .headerSearchPath("Network Headers")]),
         .testTarget(
             name: "LanScannerTests",
             dependencies: ["LanScanner"]),
