@@ -36,7 +36,11 @@
         _delegate=delegate;
         
         //Initializing the dictionary that holds the Brands name for each MAC Address
-        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        // Bundle in source
+        NSString *pathBundle = [[NSBundle mainBundle] pathForResource:@"LanScanner_LanScanner" ofType:@"bundle"];
+        assert(pathBundle);
+        NSBundle *bundle = [NSBundle bundleWithPath:pathBundle];
+        assert(bundle);
         NSString *path = [bundle pathForResource:@"data" ofType:@"plist"];
         
         assert(path);
