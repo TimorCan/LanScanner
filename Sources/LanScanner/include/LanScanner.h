@@ -14,7 +14,7 @@
 //FOUNDATION_EXPORT const unsigned char LanScannerVersionString[];
 //
 //// In this header, you should import all the public headers of your framework using statements like #import <LanScanner/PublicHeader.h>
-//#import <LanScanner/MMDevice.h>
-//#import <LanScanner/MMLANScanner.h>
+#import "MMDevice.h"
+#import "MMLANScanner.h"
 
 
