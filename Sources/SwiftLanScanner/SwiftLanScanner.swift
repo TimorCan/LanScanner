@@ -60,6 +60,10 @@ public class SwiftLanScanner: NSObject {
         return shared._isScanning
     }
     
+    public static var progress: AnyPublisher<Float, Never> {
+        return shared.$_progress.eraseToAnyPublisher()
+    }
+    
     public static var listDevice: AnyPublisher<[MMDevice], Never> {
         return shared.$_listDevice.eraseToAnyPublisher()
     }
