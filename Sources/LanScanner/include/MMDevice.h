@@ -10,11 +10,11 @@
 
 @interface MMDevice : NSObject
 
-@property (nonatomic,strong) NSString *hostname;
-@property (nonatomic,strong) NSString *ipAddress;
-@property (nonatomic,strong) NSString *macAddress;
-@property (nonatomic,strong) NSString *subnetMask;
-@property (nonatomic,strong) NSString *brand;
+@property (nonatomic,strong,nullable) NSString *hostname;
+@property (nonatomic,strong,nullable) NSString *ipAddress;
+@property (nonatomic,strong,nullable) NSString *macAddress;
+@property (nonatomic,strong,nullable) NSString *subnetMask;
+@property (nonatomic,strong,nullable) NSString *brand;
 @property (nonatomic,assign) BOOL isLocalDevice;
--(NSString*)macAddressLabel;
+-( NSString* _Nonnull )macAddressLabel;
 @end

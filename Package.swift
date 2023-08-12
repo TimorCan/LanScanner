@@ -12,6 +12,9 @@ let package = Package(
             name: "LanScanner",
             type: .static,
             targets: ["LanScanner"]),
+        .library(name: "SwiftLanScanner",
+                 type: .dynamic,
+                 targets: ["SwiftLanScanner"])
     ],
     dependencies:[],
     targets: [
@@ -22,6 +25,8 @@ let package = Package(
             resources: [.copy("Resources/data.plist")],
             publicHeadersPath: "include",
             cSettings: [.headerSearchPath("."), .headerSearchPath("Network Headers")]),
+        .target(name: "SwiftLanScanner",
+                dependencies: ["LanScanner"]),
         .testTarget(
             name: "LanScannerTests",
             dependencies: ["LanScanner"]),
