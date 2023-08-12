@@ -13,8 +13,8 @@ let package = Package(
             type: .static,
             targets: ["LanScanner"]),
         .library(name: "SwiftLanScanner",
-                 type: .dynamic,
-                 targets: ["LanScanner","SwiftLanScanner"])
+                 type: .static,
+                 targets: ["SwiftLanScanner"])
     ],
     dependencies:[],
     targets: [
@@ -29,6 +29,6 @@ let package = Package(
                 dependencies: ["LanScanner"]),
         .testTarget(
             name: "LanScannerTests",
-            dependencies: ["LanScanner"]),
+            dependencies: ["LanScanner", "SwiftLanScanner"]),
     ], cLanguageStandard: .gnu11
 )
