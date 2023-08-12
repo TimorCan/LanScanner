@@ -19,6 +19,7 @@ public class SwiftLanScanner: NSObject {
         _scanner?.isScanning ?? false
     }
     @Published private var _listDevice: [MMDevice] = []
+    @Published private var _progress: Float = 0
     
     private struct Log {
         static func output(at f:String = #function, line: Int = #line, detail: Any...) {
@@ -37,6 +38,7 @@ public class SwiftLanScanner: NSObject {
     
     private func _start() {
         _listDevice = []
+        _progress = 0
         monitor.pathUpdateHandler = { p in
             defer { self.monitor.cancel() }
             guard p.usesInterfaceType(.wifi) || p.usesInterfaceType(.wiredEthernet) else {
@@ -75,7 +77,7 @@ public class SwiftLanScanner: NSObject {
 // MARK: -- Delegate
 extension SwiftLanScanner: MMLANScannerDelegate {
     public func lanScanDidFindNewDevice(_ device: MMDevice!) {
-        guard let d = device else { return }
+        guard let d = device, !_listDevice.contains(d) else { return }
         _listDevice.append(d)
     }
     
@@ -85,6 +87,11 @@ extension SwiftLanScanner: MMLANScannerDelegate {
     
     public func lanScanDidFailedToScan() {
         Log.output(detail: "Fail Scan")
+    }
+    
+    public func lanScanProgressPinged(_ pingedHosts: Float, from overallHosts: Int) {
+        guard overallHosts > 0 else { return }
+        _progress = pingedHosts / Float(overallHosts)
     }
 }
 
