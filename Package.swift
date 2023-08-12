@@ -14,7 +14,7 @@ let package = Package(
             targets: ["LanScanner"]),
         .library(name: "SwiftLanScanner",
                  type: .dynamic,
-                 targets: ["SwiftLanScanner"])
+                 targets: ["LanScanner","SwiftLanScanner"])
     ],
     dependencies:[],
     targets: [
