@@ -130,7 +130,8 @@ public class SwiftLanScanner: NSObject {
 // MARK: -- Delegate
 extension SwiftLanScanner: MMLANScannerDelegate {
     public func lanScanDidFindNewDevice(_ device: MMDevice!) {
-        guard let d = device, !_listDevice.contains(d) else { return }
+        
+        guard let d = device else { return }
         _listDevice.append(d)
     }
     
