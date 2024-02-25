@@ -74,6 +74,9 @@
     isFinished = NO;
     isCancelled = NO;
     self.isScanning = YES;
+    
+    LANProperties * p = [[LANProperties alloc]init];
+    self.routerIP = [p getRouterIP];
 
     //Getting the local IP
     self.device = [LANProperties localIPAddress];

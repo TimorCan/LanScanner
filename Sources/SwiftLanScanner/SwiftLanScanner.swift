@@ -136,7 +136,7 @@ extension SwiftLanScanner: MMLANScannerDelegate {
         
         for item in _listDevice{
             if item.ipAddress == d.ipAddress{
-                findIp = false
+                findIp = true
             }
         }
            
