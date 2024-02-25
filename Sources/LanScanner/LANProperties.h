@@ -11,7 +11,6 @@
 
 @interface LANProperties : NSObject
 
--(NSString*) getRouterIP;
 /*!
  @brief This method returns the Local IP Address and MAC Address as Device object
  @return The device object

@@ -88,7 +88,6 @@ MMLanScannerStatus;
  */
 @property(nonatomic,assign,readonly)BOOL isScanning;
 
-@property(nonatomic,copy)NSString * routerIP;
 /*!
  @brief Starts the scanning
  */
